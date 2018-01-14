@@ -1,10 +1,11 @@
-import queue
 from sys import stdin
 
-adj = dict() #список смежности
-vertexes = set() #список посещенных вершин
+from Queue import queue
 
-def RunGraph(v, q): #функция обхода в ширину
+adj = dict() # список смежности
+vertexes = set() # список посещенных вершин
+
+def RunGraph(v, q): # функция обхода в ширину
    if not adj.get(v):
        print(v)
        return
@@ -13,15 +14,15 @@ def RunGraph(v, q): #функция обхода в ширину
        q.put(i);  # добавляем соседей в очередь
    vertexes.add(v)
    print(v)
-   while(not q.empty()): #пока в очереди есть хотя бы одна вершина
-         w = q.get() #извлекаем вершину из очереди
-         if w in vertexes: #если вершина уже была посещена, то пропускаем ее
+   while(not q.empty()): # пока в очереди есть хотя бы одна вершина
+         w = q.get() # извлекаем вершину из очереди
+         if w in vertexes: # если вершина уже была посещена, то пропускаем ее
              continue
          if adj.get(w):
             for i in adj[w]:
                 q.put(i);  # добавляем соседей текущей вершины в очередь
          print(w)
-         vertexes.add(w) #добавляем вершину в список посещенных
+         vertexes.add(w) # добавляем вершину в список посещенных
 
 s = stdin.readline()
 command = s.split()
