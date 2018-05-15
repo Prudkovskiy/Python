@@ -1,0 +1,8 @@
+Owner,Issuer,Percentage
+A,B,52%
+B,D,33%
+D,P,40%
+P,L,83%
+C,D,20%
+A,C,62%
+Z,A,60%
