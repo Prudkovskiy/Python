@@ -1,5 +1,6 @@
 import pandas as pd
 import numpy as np
+import sys
 
 
 def graph_traversal(matrix, issuer, own):
@@ -91,9 +92,9 @@ def make_keys(d):
         i += 1
 
 
-def main():
+def main(input_file):
     # initialize the table using pandas lib
-    df = pd.read_csv("input2.csv")
+    df = pd.read_csv(input_file)
     df['Percentage'] = round(
         df['Percentage'].str.rstrip('%').astype('float') / 100,
         len(df.Percentage)
@@ -136,4 +137,9 @@ def main():
 
 
 if __name__ == '__main__':
-    main()
+
+    if len(sys.argv) > 1:
+        main(sys.argv[1].lower())
+
+    else:
+        print('invalid option. please use "python hierarchical_graph.py <input_file>"')
